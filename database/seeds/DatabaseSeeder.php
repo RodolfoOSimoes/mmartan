@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Services\ProductsService;
 use App\Services\ProductsImagesService;
+use App\Services\ProductsCategoriesService;
 
 class DatabaseSeeder extends Seeder
 {
@@ -542,6 +543,90 @@ class DatabaseSeeder extends Seeder
     		'product_id' => 20,
     		'url' => '/img/20/4.jpeg'
     	]);
+
+        /**
+         * Cadastro de categorias produtos.
+         */
+
+        ProductsCategoriesService::create([
+            'name' => 'Cama'
+        ]);
+
+        ProductsCategoriesService::create([
+            'name' => 'Banho'
+        ]);
+
+        ProductsCategoriesService::create([
+            'name' => 'Solteiro Extra'
+        ]);
+
+        ProductsCategoriesService::create([
+            'name' => 'Infantil'
+        ]);
+
+        /**
+         *  Adicionar categorias aos produtos.
+         */
+
+        ProductsService::addCategory(1, 1);
+        ProductsService::addCategory(1, 3);
+
+        ProductsService::addCategory(2, 2);
+        ProductsService::addCategory(2, 4);
+
+        ProductsService::addCategory(3, 2);
+        ProductsService::addCategory(3, 3);
+
+        ProductsService::addCategory(4, 1);
+        ProductsService::addCategory(4, 3);
+
+        ProductsService::addCategory(5, 2);
+        ProductsService::addCategory(5, 4);
+
+        ProductsService::addCategory(6, 2);
+        ProductsService::addCategory(6, 3);
+
+        ProductsService::addCategory(7, 1);
+        ProductsService::addCategory(7, 4);
+
+        ProductsService::addCategory(8, 1);
+        ProductsService::addCategory(8, 3);
+
+        ProductsService::addCategory(9, 1);
+        ProductsService::addCategory(9, 4);
+
+        ProductsService::addCategory(10, 2);
+        ProductsService::addCategory(10, 3);
+
+        ProductsService::addCategory(11, 2);
+        ProductsService::addCategory(11, 4);
+
+        ProductsService::addCategory(12, 1);
+        ProductsService::addCategory(12, 3);
+
+        ProductsService::addCategory(13, 1);
+        ProductsService::addCategory(13, 4);
+
+        ProductsService::addCategory(14, 2);
+        ProductsService::addCategory(14, 4);
+
+        ProductsService::addCategory(15, 1);
+        ProductsService::addCategory(15, 3);        
+
+        ProductsService::addCategory(16, 1);
+        ProductsService::addCategory(16, 4);
+
+        ProductsService::addCategory(17, 1);
+        ProductsService::addCategory(17, 4);
+
+        ProductsService::addCategory(18, 2);
+        ProductsService::addCategory(18, 3);
+
+        ProductsService::addCategory(19, 2);
+        ProductsService::addCategory(19, 4);
+
+        ProductsService::addCategory(20, 1);
+        ProductsService::addCategory(20, 4);
 
     }
 }

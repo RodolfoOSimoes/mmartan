@@ -14,4 +14,9 @@ class Product extends Model
         return $this->hasMany('App\Models\ProductImage', 'product_id', 'id');
     }
 
+    public function categories()
+    {
+    	return $this->belongsToMany('App\Models\ProductCategory', 'products_categories_products', 'product_id', 'product_category_id');
+    }
+
 }

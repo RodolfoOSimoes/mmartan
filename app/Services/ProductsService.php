@@ -34,9 +34,26 @@ class ProductsService
 			->take($count);
 
 		if (true === $details) {
-			$query->with('images');
+			$query->with(['images', 'categories']);
 		}
 
 		return $query->get();
 	}
+
+	public static function find($productId)
+	{
+		return Product::find($productId);
+	}
+
+	public static function addCategory($productId, $categoryId)
+	{
+		$product = self::find($productId);
+	
+		if (null == $product) {
+			return false;
+		}
+
+		return $product->categories()->attach($categoryId);
+	}
+
 }
