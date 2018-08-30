@@ -211,7 +211,7 @@ class DatabaseSeeder extends Seeder
 
     	ProductsImagesService::create([
     		'product_id' => 4,
-    		'url' => '/img/4/1jpeg'
+    		'url' => '/img/4/1.jpeg'
     	]);
 
     	ProductsImagesService::create([
@@ -301,7 +301,7 @@ class DatabaseSeeder extends Seeder
 
     	ProductsImagesService::create([
     		'product_id' => 8,
-    		'url' => '/img/8/4.jpeg'
+    		'url' => '/img/8/2.jpeg'
     	]);
 
     	ProductsImagesService::create([
@@ -541,7 +541,7 @@ class DatabaseSeeder extends Seeder
 
     	ProductsImagesService::create([
     		'product_id' => 20,
-    		'url' => '/img/20/4.jpeg'
+    		'url' => '/img/20/3.jpeg'
     	]);
 
         /**

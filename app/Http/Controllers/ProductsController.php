@@ -17,11 +17,15 @@ class ProductsController extends Controller
 
 	public function search($page = 0, $count = 10)
 	{
-		$filter = $this->request->get('filter');
+		$page = (int)$page;
+		$count = (int)$count;
+		$filter = $this->request->get('filter', '');
 		$products = null;
+		$total = null;
 
 		try {
 			$products = ProductsService::search($filter, $page, $count, true);
+			$total = ProductsService::searchCount($filter);
 		} catch(\Exception $e) {
 			return [
 				'status' => 'error',
@@ -33,8 +37,12 @@ class ProductsController extends Controller
 			'status' => 'success',
 			'data' => $products->toArray(),
 			'filter' => $filter,
-			'pagintaion' => []
-		];		
+			'pagination' => [
+				'page' => $page,
+				'count' => $count,
+				'total' => $total
+			]
+		];
 	}
 
 	public function all()

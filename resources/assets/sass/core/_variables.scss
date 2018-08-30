@@ -4,3 +4,70 @@
 
 $font-size: 16px;
 $font-family: 'Open Sans', sans-serif;
+
+// Borders
+// ----------------------
+
+$input-border-color-1: #cbcbcb;
+
+$border-color-1: #dfbe7f;
+$border-color-2: #edeae9;
+$border-color-3: #838383;
+
+
+// Backgrounds
+// ----------------------
+
+$input-background-color-1: #FFFFFF;
+
+$background-color-1: #ecebf0;
+$background-color-2: lighten(#ecebf0, 5);
+
+
+// Colors
+// ----------------------
+
+$input-color-1: #aeaeae;
+
+$color-1: #433f65;
+$color-2: #696969;
+$color-3: #838383;
+$color-4: #333333;
+$color-5: #000000;
+
+
+// Screens
+// ----------------------------
+
+$screen-xs-min: 0px;
+$screen-xs-max: 479px;
+$screen-sm-min: 480px;
+$screen-sm-max: 767px;
+$screen-md-min: 768px;
+$screen-md-max: 1023px;
+$screen-lg-min: 1024px;
+$screen-lg-max: 1399px;
+$screen-xl-min: 1400px;
+$screen-xl-max: 20000px;
+
+
+// Media Queries
+// ----------------------------
+
+$media-xs: '(min-width: #{$screen-xs-min})';
+$media-sm: '(min-width: #{$screen-sm-min})';
+$media-md: '(min-width: #{$screen-md-min})';
+$media-lg: '(min-width: #{$screen-lg-min})';
+$media-xl: '(min-width: #{$screen-xl-min})';
+
+$media-xs-down: '(max-width: #{$screen-xs-max})';
+$media-sm-down: '(max-width: #{$screen-sm-max})';
+$media-md-down: '(max-width: #{$screen-md-max})';
+$media-lg-down: '(max-width: #{$screen-lg-max})';
+$media-xl-down: '(max-width: #{$screen-xl-max})';
+
+$media-xs-only: '(min-width: #{$screen-xs-min}) and (max-width: #{$screen-xs-max})';
+$media-sm-only: '(min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max})';
+$media-md-only: '(min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max})';
+$media-lg-only: '(min-width: #{$screen-lg-min}) and (max-width: #{$screen-lg-max})';
+$media-xl-only: '(min-width: #{$screen-xl-min}) and (max-width: #{$screen-xl-max})';

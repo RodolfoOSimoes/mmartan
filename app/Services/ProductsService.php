@@ -40,6 +40,12 @@ class ProductsService
 		return $query->get();
 	}
 
+	public static function searchCount($filter)
+	{
+		return Product::where('name', 'like', '%'.$filter.'%')
+			->count();
+	}
+
 	public static function find($productId)
 	{
 		return Product::find($productId);

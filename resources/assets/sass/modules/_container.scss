@@ -1,0 +1,33 @@
+
+// container
+// -----------------------
+
+.container {
+	display: block;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+@media #{$media-md} {
+	.container {
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 30px;
+		padding-right: 30px;
+		max-width: 1135px;
+	}
+}
+
+
+// container-fluid
+// -----------------------
+
+.container-fluid {
+	padding: 0 15px;
+}
+
+@media #{$media-md} {
+	.container-fluid {
+		padding: 0 30px;
+	}
+}
