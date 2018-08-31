@@ -1,12 +1,12 @@
 <template>
-    <header class="header">
+    <header class="header" :class="{'header--search':search}">
         <div class="header__container">
             <div class="header__content">
                 <a href="/" class="header__logo">
                     <img :src="logo.url" class="header__logo__image" :alt="logo.alt" :title="logo.title" />
                 </a>
                 <div class="header__search">
-                    <search-input></search-input>
+                    <search-input :change-header-mode.sync="changeMode"></search-input>
                 </div>
             </div>
         </div>
@@ -17,6 +17,7 @@
     export default {
         data: function() {
             return {
+                search: false,
                 logo: {
                     url: '/img/logo.png',
                     alt: 'MMartan',
@@ -26,11 +27,23 @@
         },
         components: {
             'search-input': require('./search-input.vue')
+        },
+        methods: {
+            changeMode: function(mode) {
+                if ('search' === mode) {
+                    this.search = true;
+                } else if ('default' == mode) {
+                    this.search = false;
+                }
+            }
         }
     }
 </script>
 
-<style>
+<style lang="scss">
+
+    @import "../../sass/core/variables";
+    @import "../../sass/modules/container";
 
     .header {
         position: relative;
@@ -39,7 +52,7 @@
     }
 
     .header__container {
-        padding: 0 30px;
+        @extend .container-fluid;
     }
 
     .header__content {
@@ -47,11 +60,16 @@
         align-items: center;
         justify-content: space-between;
         height: 62px;
-        
     }
 
-    .header__logo {
+    .header__search {
+        max-width: 100%;
+    }
 
+    @media #{$media-xs-down} {
+        .header--search .header__logo {
+            display: none;
+        }
     }
 
 </style>

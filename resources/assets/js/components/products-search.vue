@@ -9,7 +9,8 @@
                     :products.sync="search.products"
                     :total.sync="search.total"
                     :page.sync="search.page"
-                    :count.sync="search.count"></products-list>
+                    :count.sync="search.count"
+                    :update.sync="update"></products-list>
             </div>
     	</div>
     </div>
@@ -20,7 +21,6 @@
     let ProductsService = require('../services/products-service.js').default;
 
     export default {
-
         data: function() {
             return {
                 search: {
@@ -34,8 +34,8 @@
             }
         },
         methods: {
-            load: function() {
-                let request = ProductsService.search(this.search.filter, this.search.page, this.search.perpage);
+            load: function(filter, page, count) {
+                let request = ProductsService.search(filter, page, count);
 
                 request.then((response) => {
                     response = response.data;
@@ -44,6 +44,9 @@
                         this.setLoadedData(response);
                     }
                 });
+            },
+            update: function(page, count) {
+                this.load(this.search.filter, page, count);
             },
             setLoadedData: function(data) {
                 this.search.filter = data.filter;
@@ -56,8 +59,12 @@
         components: {
             'products-list': require('./products-list.vue')
         },
-        created: function() {
-            this.load();
+        mounted: function() {
+            this.load(this.search.filter, this.search.page, this.search.count);
+
+            this.$root.$on('search', (filter) => {
+                this.load(filter, this.search.page, this.search.count);
+            });
         }
     }
 </script>

@@ -23,6 +23,11 @@
     	</div>
         <div class="products-list__footer">
             <div class="products-list__footer__content">
+                <pagination
+                    :count.sync="count"
+                    :total.sync="total"
+                    :page.sync="page"
+                    :update.sync="update"></pagination>
             </div>
         </div>
     </div>
@@ -49,7 +54,11 @@
             count: {
                 type: Number,
                 default: 0
-            }            
+            },
+            update: {
+                type: Function,
+                default: function() {}
+            }
         },
         data: function() {
             return {};
@@ -58,6 +67,9 @@
             formatMoney: function(value) {
                 return moneyFormatBRL(value);
             }
+        },
+        components: {
+            'pagination': require('./pagination.vue')
         }
     }
 </script>
@@ -218,7 +230,7 @@
 
     .products-list__footer {
         padding-top: 30px;
-
+        padding-bottom: 45px;
     }
 
     .products-list__footer__content {
